@@ -22,7 +22,7 @@ echo Option::get('sitename')?></title>
 									}else{
 										echo Option::get('seo_index_description');
 									}?>" />
-      <link type="image/x-icon" href="<?php echo $this->url()?>/favicon.ico" rel="shortcut icon" />
+      <link type="image/x-icon" href="<?php echo $this->url()?>favicon.ico" rel="shortcut icon" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/common.css')?>">
 	<link rel="stylesheet" href="<?php echo $this->staticFile('css/fontello.css')?>" media="all" />
 <?php echo $this->getCss()?>
