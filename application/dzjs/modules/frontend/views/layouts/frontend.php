@@ -24,6 +24,7 @@ echo Option::get('sitename')?></title>
 									}?>" />
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/common.css')?>">
+	<link rel="stylesheet" href="<?php echo $this->staticFile('css/fontello.css')?>" media="all" />
 <?php echo $this->getCss()?>
 	<script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.js')?>"></script>
 

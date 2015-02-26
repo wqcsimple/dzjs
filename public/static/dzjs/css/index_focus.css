@@ -108,17 +108,17 @@
 
 .left .gg{width: 400px;height: 240px;float: left;background-color: #FFFFFF;border: 1px solid #dcdcdc;margin-bottom:10px;border-radius: 5px;box-shadow:3px 3px rgba(0,0,0,.1);}
 .left .gg ul{width: 350px;padding-left: 10px;float: left;}
-.left .gg ul li{width: 340px;margin-left:15px;padding-left: 10px;color: #313131;float: left;padding-top: 6px;}
-.left .gg ul li span{text-align: right;font-size: 12px;float: left;}
+.left .gg ul li{width: 340px;margin-left:15px;padding:6px 0 0 10px;color: #313131;float: left;border-bottom:1px dashed #ccc;}
+.left .gg ul li span{text-align: right;font-size: 12px;float: left;height:19px;line-height: 19px;}
 .left .gg ul li a{font-size: 14px;width: 265px;display: block;float: right;line-height: 140%;}
 .left .gg ul li a:hover{color:#FF4040;}
 
 
-.left .bt{width: 350px;float: left;padding-left: 20px;padding-top: 10px;line-height: 30px;}
+.left .bt{width: 350px;height:29px;float: left;padding:10px 0 0 0;margin:0 0 10px 20px;line-height: 29px;border-bottom: 1px dotted #ccc;}
 .left .bt span{float: left;color: #004e72;font-size: 16px;font-weight: bold;}
 .left .bt span a{color: #004E72;}
 .left .bt p{float: right;}
-.left .bt p a{color: #1b1b1b;font-size: 12px;line-height: 35px;}
+.left .bt p a{color: #1b1b1b;font-weight:bold;font-size: 12px;line-height: 35px;}
 .left .bt p a:hover{text-decoration: underline;}
 .left .bt p b{float: left;line-height: 35px;color: #313131;margin-right: 6px;font-size: 12px;}
 .left .bt p strong{float: left;line-height: 35px;color: #959595;margin-right: 6px;font-size: 12px;}
@@ -144,13 +144,14 @@
 .right .jxdw .index-page p a{color: #313131;font-size: 14px;}
 .right .jxdw .index-page p a:hover{color:#FF4040;}
 
-.right .bt{width: 580px;float: left;padding-left: 20px;padding-top: 10px;line-height: 30px;}
+.right .bt{width: 550px;float: left;padding: 10px 0 0 0;margin:0 0 10px 20px;line-height: 30px;border-bottom: 1px dotted #ccc;}
 .right .bt span{float: left;color: #004e72;font-size: 16px;font-weight: bold;}
 .right .bt span a{color:#004e72; }
 .right .bt p{float: right;margin-right: 50px;}
 .right .bt p a{color: #1b1b1b;font-size: 12px;line-height: 35px;}
 .right .bt p a:hover{color:#FF4040;}
 
+.right .kcxw .bt{width: 250px;}
 .right .kcxw{width: 283px;height: 240px;float: left;background: #F9F9F9;border: 1px solid #dcdcdc;margin-bottom: 10px;border-radius: 5px;box-shadow: 3px 3px rgba(0,0,0,.1);margin-right: 9px;}
 .right .kcxw ul{width: 270px;float: left;padding-left: 20px;}
 .right .kcxw ul li{width: 270px;color: #313131;float: left;padding-top: 6px;}
@@ -162,13 +163,14 @@
 .right .xsdt ul li{width: 270px;color: #313131;float: left;padding-top: 6px;}
 .right .xsdt ul li a{font-size: 14px; width: 270px;display: block;float: right;line-height: 140%}
 .right .xsdt ul li a:hover{color:#FF4040;}
+.right .xsdt .bt{width: 250px;}
 
 .image-view{width:990px;height: 224px;border: 1px solid #dcdcdc;float: left;border-radius: 5px;box-shadow: 3px 3px rgba(0,0,0,.1);}
 
-.image-view .bt{width: 980px;float: left;padding-left: 20px;padding-top: 10px;line-height: 30px;}
+.image-view .bt{width: 960px;float: left;padding:10px 0 0 0;margin:0 0 10px 20px;line-height: 30px;border-bottom: 1px dotted #ccc;}
 .image-view .bt span{float: left;color: #004e72;font-size: 16px;font-weight: bold;}
 .image-view .bt span a{color: #004e72;}
-.image-view .bt p{float: right;margin-right: 50px;}
+.image-view .bt p{float: right;margin-right: 20px;font-weight:bold;}
 .iamge-view .bt p a{color: #1b1b1b;font-size: 12px;line-height: 35px;}
 .image-view .bt p a:hover{color:#FF4040;}
 

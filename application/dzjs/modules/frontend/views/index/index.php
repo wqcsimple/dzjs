@@ -23,7 +23,7 @@ use fayfox\core\Widget;
 	
 	<div class="right">
 		<div class="jxdw">
-			<div class="bt"><span><?php echo $about['title']?></span></div>
+			<div class="bt"><span><i class="icon-users"></i><?php echo $about['title']?></span></div>
 			<div class="index-page">
 				<a href="" title="课本"><img src="<?php echo $this->staticFile('images/g.jpg') ?>" alt=""></a>
 				<?php echo String::niceShort($about['content'], 150)?>
@@ -41,7 +41,7 @@ use fayfox\core\Widget;
 	<!--image view-->
 	<div class="image-view">
 		
-		<div class="bt"><span><a href="">活动图片</a></span><p><a href="">更多...</a></p></div>
+		<div class="bt"><span><i class="icon-picture"></i><a href="">活动图片</a></span><p><a href="">更多<i class="icon-angle-double-right"></i></a></p></div>
 		<div class="bd" id="bd">
 			<div class="wrap">
 				<ul>
