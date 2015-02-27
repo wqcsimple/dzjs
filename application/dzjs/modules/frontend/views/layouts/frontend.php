@@ -27,6 +27,11 @@ echo Option::get('sitename')?></title>
 	<link rel="stylesheet" href="<?php echo $this->staticFile('css/fontello.css')?>" media="all" />
 
 	<script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.js')?>"></script>
+	<script type="text/javascript" src="<?php echo $this->url()?>js/custom/system.min.js"></script>
+    <script>
+        system.base_url = '<?php echo $this->url()?>';
+        system.user_id = '<?php echo F::app()->session->get('id', 0)?>';
+    </script>
 <?php echo $this->getCss()?>
 </head>
 <body>
@@ -34,6 +39,6 @@ echo Option::get('sitename')?></title>
 	<?php echo $content ?>
 	<?php include '_footer.php'; ?>
 
-<script type="text/javascript" src="<?php echo $this->staticFile('js/index.js'); ?>"></script>
+
 </body>
 </html>

@@ -17,16 +17,53 @@ use fayfox\helpers\Html;
 <div class="gyright">
     <div class="gyright_head1"><a href="<?php echo $this->url()?>">首页</a>>
         <a href="">互动平台</a></div>
-        <form action="" role="form" >
-            <div class="form-group">
-                <div class="lyh"><h1>| 我要留言</h1></div>
-                <textarea name="content" id="content" cols="30" rows="5" class="form-control"></textarea>
+        <div class="container">
+        
+            <div class="row" >
+            <form id = "message">
+               <blockquote>
+                       <h6>我要留言：</h6>
+                       <?php echo Html::inputHidden('parent', 0)?>
+                       <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                       <h6>您的姓名：</h6><input type="text" name="realname" id="name" />
+                       <button class="button-primary" id="sub-message" />发布留言</button>
+               </blockquote>
+               </form>
             </div>
-            <div class="form-group">
-                <span class="lyh">您的姓名</span>
-                <input type="text" name="realname" id="realname"  />
-            </div>
-        </form>
+         
+        </div>
+        
+       <div class="container">
+            <ul class="message-list">
+               <?php $listview->showData()?>
+                
+            </ul>
+            
+            
+       </div>
+       <?php $listview->showPage();?>
+       
+
     
 
 </div>
+
+<script>
+  $(document).on('click', '#sub-message', function() {
+      $.ajax({
+        url: system.url('chat/create'),
+        type: 'post',
+        dataType: 'json',
+        data: $('#message').serialize(),
+        success: function(data){
+          if (data.status) {
+            alert(data.message);
+          }else{
+            alert(data.message);
+          }
+        }
+      });
+    });
+
+
+</script>

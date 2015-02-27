@@ -1,5 +1,6 @@
 <?php 
 use fayfox\models\Option;
+use fayfox\models\Analyst;
 ?>
 <!-- footer -->
 <div class="foot" style=" clear:both">
@@ -8,9 +9,12 @@ use fayfox\models\Option;
         <div class="fp">
             <p><?php echo Option::get('phone')?> <a href="" style="color:#313131">更多联系方式</a></p>
             <p><?php echo Option::get('copyright')?> </p>
-            <p>今日访问量：0 总访问量：11822</p>
+            <p>今日访问量：<?php echo Analyst::model()->getPV()?> 总访问量：<?php echo Analyst::model()->getAllPV()?></p>
         </div>
-
+<script type="text/javascript" src="<?php echo $this->url()?>js/custom/analyst-min.js"></script>
+<script>
+_fa.init();
+</script>
         <div class='send'>
                 <a href="" target="_blank"  class='weixin'></a>
                 <a href="javascript:;" class="blog"></a>
@@ -18,6 +22,8 @@ use fayfox\models\Option;
             </div>
     </div>
 </div>
+
+
 <script>
 $(function(){
 
@@ -26,9 +32,9 @@ $(function(){
 	}, function() {
 		$('.send p').hide();
 	});
-	
-
 });
+
+
 
 function AddFavorite(sURL, sTitle) {
     try {
@@ -42,3 +48,4 @@ function AddFavorite(sURL, sTitle) {
     }
 }
 </script>
+

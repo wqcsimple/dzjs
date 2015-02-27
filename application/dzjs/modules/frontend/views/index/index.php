@@ -55,6 +55,11 @@ use fayfox\core\Widget;
 					'loop'    :0,
 					'isEqual' :true,
 				});
+
+		$(".gg .bd").kxbdMarquee({
+			     'direction':'up',
+			     'scrollDelay':50,		//时长		     
+			});
 	});
 			
 </script>

@@ -6,12 +6,9 @@ use fayfox\models\Option;
 	<div class="top_line"></div>
 	 <div class="topper">
 	  <div class="web">
-		<div class="search">
-			<input type="text" x-webkit-speech="" class="input" name="keyword" id="keyword"/>
-			<input type="button" class="ss" value="" onclick="submit()"/>
-		</div>
+
 		
-		<a href="###">联系我们</a>
+		<a href="<?php echo $this->url('page/contact')?>">联系我们</a>
 		<a onclick="AddFavorite('<?php echo $this->url()?>','<?php echo Option::get('sitename')?>')" href="javascript:void(0);">加入收藏</a>
 		<a href="http://dzjs.ypcol.com/index.asp" target="_blank">旧版主页</a>
 	  </div>
