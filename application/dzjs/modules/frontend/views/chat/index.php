@@ -26,7 +26,7 @@ use fayfox\helpers\Html;
                        <?php echo Html::inputHidden('parent', 0)?>
                        <textarea name="content" id="content" cols="30" rows="10"></textarea>
                        <h6>您的姓名：</h6><input type="text" name="realname" id="name" />
-                       <button class="button-primary" id="sub-message" />发布留言</button>
+                       <button class="button-primary" id="sub-message" />发布留言</button><img id="loading" src="<?php echo $this->staticFile('images/loading.gif')?>" style="margin-left:20px;float:right;display:none;"/>
                </blockquote>
                </form>
             </div>
@@ -51,6 +51,7 @@ use fayfox\helpers\Html;
 <script>
   $(document).on('click', '#sub-message', function(e){
 	  e.preventDefault();
+	  $('#loading').show();
       $.ajax({
         url: system.url('chat/create'),
         type: 'post',
