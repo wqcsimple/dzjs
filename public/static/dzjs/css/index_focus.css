@@ -106,12 +106,13 @@
 
 
 
-.left .gg{width: 400px;height: 240px;float: left;background-color: #FFFFFF;border: 1px solid #dcdcdc;margin-bottom:10px;border-radius: 5px;box-shadow:3px 3px rgba(0,0,0,.1);}
+.left .gg{width: 400px;height: 240px;overflow:hidden; position:relative;float: left;background-color: #FFFFFF;border: 1px solid #dcdcdc;margin-bottom:10px;border-radius: 5px;box-shadow:3px 3px rgba(0,0,0,.1);}
 .left .gg ul{width: 350px;padding-left: 10px;float: left;}
 .left .gg ul li{width: 340px;margin-left:15px;padding:6px 0 0 10px;color: #313131;float: left;border-bottom:1px dashed #ccc;}
 .left .gg ul li span{text-align: right;font-size: 12px;float: left;height:19px;line-height: 19px;}
 .left .gg ul li a{font-size: 14px;width: 265px;display: block;float: right;line-height: 140%;}
 .left .gg ul li a:hover{color:#FF4040;}
+.left .gg .bd{float: left;}
 
 
 .left .bt{width: 350px;height:29px;float: left;padding:10px 0 0 0;margin:0 0 10px 20px;line-height: 29px;border-bottom: 1px dotted #ccc;}

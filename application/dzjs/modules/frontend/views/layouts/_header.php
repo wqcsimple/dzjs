@@ -1,6 +1,7 @@
 <?php 
 use fayfox\models\Category;
 use fayfox\helpers\Html;
+use fayfox\models\Option;
 ?>	
 	<div class="top_line"></div>
 	 <div class="topper">
@@ -11,7 +12,7 @@ use fayfox\helpers\Html;
 		</div>
 		
 		<a href="###">联系我们</a>
-		<a href="###">站点地图</a>
+		<a onclick="AddFavorite('<?php echo $this->url()?>','<?php echo Option::get('sitename')?>')" href="javascript:void(0);">加入收藏</a>
 		<a href="http://dzjs.ypcol.com/index.asp" target="_blank">旧版主页</a>
 	  </div>
 	 </div>

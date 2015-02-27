@@ -14,9 +14,11 @@ use fayfox\core\Widget;
 
 <!-- body -->
 <div class="in_body">
+
 	<div class="left">
 
 		        <?php F::app()->widget->load('index-box-1');?>
+
 		<!--gg end-->
 				<?php F::app()->widget->load('index-box-2')?>
 	</div>
@@ -40,44 +42,10 @@ use fayfox\core\Widget;
 
 	<!--image view-->
 	<div class="image-view">
-		
-		<div class="bt"><span><i class="icon-picture"></i><a href="">活动图片</a></span><p><a href="">更多<i class="icon-angle-double-right"></i></a></p></div>
-		<div class="bd" id="bd">
-			<div class="wrap">
-				<ul>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic1.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图1</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic2.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图2</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic3.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图3</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic4.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图4</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic5.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图5</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic6.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图6</a></div>
-					</li>
-					<li>
-						<div class="pic"><a href=""><img src="<?php echo $this->staticFile('images/pic7.jpg') ?>" alt=""></a></div>
-						<div class="title"><a href="##">图7</a></div>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<?php F::app()->widget->load('index-bottom-gallery')?>
 	</div>
-</script> <script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.kxbdmarquee.js')?>"></script>
+	
+ <script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.kxbdmarquee.js')?>"></script>
 <script>
 	$(function(){
 

@@ -25,15 +25,15 @@ echo Option::get('sitename')?></title>
       <link type="image/x-icon" href="<?php echo $this->url()?>favicon.ico" rel="shortcut icon" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/common.css')?>">
 	<link rel="stylesheet" href="<?php echo $this->staticFile('css/fontello.css')?>" media="all" />
-<?php echo $this->getCss()?>
-	<script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.js')?>"></script>
 
+	<script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.js')?>"></script>
+<?php echo $this->getCss()?>
 </head>
 <body>
 	<?php include '_header.php'; ?>
 	<?php echo $content ?>
 	<?php include '_footer.php'; ?>
 
-	</script> <script type="text/javascript" src="<?php echo $this->staticFile('js/index.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->staticFile('js/index.js'); ?>"></script>
 </body>
 </html>
