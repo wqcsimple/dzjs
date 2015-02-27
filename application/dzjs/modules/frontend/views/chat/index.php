@@ -49,7 +49,8 @@ use fayfox\helpers\Html;
 </div>
 
 <script>
-  $(document).on('click', '#sub-message', function() {
+  $(document).on('click', '#sub-message', function(e){
+	  e.preventDefault();
       $.ajax({
         url: system.url('chat/create'),
         type: 'post',
@@ -58,6 +59,7 @@ use fayfox\helpers\Html;
         success: function(data){
           if (data.status) {
             alert(data.message);
+            window.location.reload();
           }else{
             alert(data.message);
           }

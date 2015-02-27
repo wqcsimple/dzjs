@@ -19,7 +19,7 @@ class CatController extends FrontController{
         $this->view->cat = $cat;
         
         $sql = new Sql();
-       $sql->from('posts','p','id,title,publish_time')
+        $sql->from('posts','p','id,title,publish_time')
 			->joinLeft('categories', 'c', 'p.cat_id = c.id')
 			->order('p.is_top DESC, p.sort, p.publish_time DESC')
 			->where(array(

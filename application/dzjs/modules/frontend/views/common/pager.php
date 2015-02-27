@@ -76,6 +76,6 @@ if($listview->totalPages > 1){
 	}
 	?>
 </li>
-<li class="fdyb">当前<?php echo $listview->currentPage;?>/<?php echo $listview->totalPages;?>页,共<?php echo $listview->totalRecords?>条新闻</li>
+<li class="fdyb">当前<?php echo $listview->currentPage;?>/<?php echo $listview->totalPages;?>页,共<?php echo $listview->totalRecords?>条记录</li>
 </ul>
 <?php }?>

@@ -25,8 +25,7 @@ use fayfox\helpers\Date;
                
    
    <ul class="tzgg">
-<!--          <li><h3>2014年11月</h3></li> -->
-<!--      <li><a href="content.html">北京大学2014年新生奖学金评审结果公示名单 </a><span>2014-11-24</span> </li>    -->
+
 	<?php $listview->showData();?>
    </ul>
 

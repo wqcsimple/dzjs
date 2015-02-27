@@ -16,6 +16,7 @@ class ChatController extends FrontController{
         $this->layout->title = '互动平台';
         $this->form()->setData($this->input->get());
         
+        
         $sql = new Sql();
         $sql->from('messages', 'm')
             ->joinLeft('users', 'u', 'm.user_id = u.id', 'realname,username,avatar,nickname')
@@ -29,7 +30,8 @@ class ChatController extends FrontController{
 			->order('id DESC');
 	    
 		$listview = new ListView($sql, array(
-		    'pageSize' => 30,
+		    'pageSize' => 10,
+		    'reload'    => $this->view->url('chat'),
 		));
 		$this->view->listview = $listview;
         
