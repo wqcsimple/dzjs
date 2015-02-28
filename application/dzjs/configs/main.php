@@ -21,6 +21,11 @@ return array(
      * 在一台服务器上跑多个cms的时候，以此区分session，可以随便设置一个
 */
     'session_namespace'=>'dzjs',
+    
+    /*
+     * 若为true，则页面地步会列出所有被执行的sql语句等信息
+     */
+    'debug'=>true,
 
     /*
      * 当前application包含的模块

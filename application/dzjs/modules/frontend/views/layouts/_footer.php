@@ -2,8 +2,9 @@
 use fayfox\models\Option;
 use fayfox\models\Analyst;
 ?>
+</div>
 <!-- footer -->
-<div class="foot" style=" clear:both">
+<div class="foot" style="clear:both">
     <div class="footin">
         <h1><img src="<?php echo $this->staticFile('images/footerlogo.png') ?>"></h1>
         <div class="fp">
