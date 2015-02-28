@@ -27,7 +27,7 @@ use fayfox\core\Widget;
 		<div class="jxdw">
 			<div class="bt"><span><i class="icon-users"></i><?php echo $about['title']?></span></div>
 			<div class="index-page">
-				<a href="" title="课本"><img src="<?php echo $this->staticFile('images/g.jpg') ?>" alt=""></a>
+				<a href="<?php echo $this->url('page/'.$about['id'])?>" title="课本"><?php echo Html::img($about['thumbnail'])?></a>
 				<?php echo String::niceShort($about['content'], 150)?>
 				<br />
 				<a href="<?php echo $this->url('page/'.$about['id'])?>" class="look" title="查看详细">[查看详细]</a>
