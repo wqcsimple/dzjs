@@ -6,7 +6,7 @@ class Backtrace{
 	 * 渲染一个堆栈的table
 	 */
 	public static function render($backtrace = null){
-		$base_path = substr(BASEPATH, 0, -7);//除去最后的public/
+		$base_path = dirname(BASEPATH);//除去最后的public/
 		$base_path_length = strlen($base_path);
 		$backtrace === null && $backtrace = array_slice(debug_backtrace(false), 1);
 		echo '<table class="trace-table debug-table">',

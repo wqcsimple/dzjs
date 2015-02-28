@@ -2,7 +2,6 @@
 use fayfox\models\tables\Messages;
 
 $settings = F::form('setting')->getAllData();
-
 ?>
 <div class="col-1">
 	<ul class="chats-list">

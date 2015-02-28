@@ -3,11 +3,11 @@ namespace fayfox\helpers;
 
 class Encrypt{
 	public static function encode($data){
-		return base64_encode(self::mcrypt_encode($data, \F::app()->config->get('encryption_key')));
+		return base64_encode(self::mcrypt_encode($data, \F::config()->get('encryption_key')));
 	}
 	
 	public static function decode($data){
-		return self::mcrypt_decode(base64_decode($data), \F::app()->config->get('encryption_key'));
+		return self::mcrypt_decode(base64_decode($data), \F::config()->get('encryption_key'));
 	}
 	
 	public static function mcrypt_encode($data, $key){

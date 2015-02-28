@@ -61,8 +61,8 @@ class Date{
 	/**
 	 * 返回指定月第一天的零点和最后一天的23点59分59秒时间戳
 	 * 默认为今年
-	 * @param int $month
-	 * @param int $year
+	 * @param int $month 月份（1-12）
+	 * @param int $year 年份，若为null，视为今年（默认为null）
 	 */
 	public static function month($month, $year = null){
 		$year || $year = date('y');
@@ -74,54 +74,59 @@ class Date{
 	
 	/**
 	 * 判断是否是今天
-	 * @param string $date Unix时间戳
+	 * @param string $timestamp Unix时间戳
 	 */
-	public static function isToday($date) {
-		return date('Y-m-d', $date) == date('Y-m-d', time());
+	public static function isToday($timestamp) {
+		return date('Y-m-d', $timestamp) == date('Y-m-d', time());
 	}
 	
 	/**
 	 * 判断是否是本月
-	 * @param string $date Unix时间戳
+	 * @param string $timestamp Unix时间戳
 	 */
-	public static function isThisMonth($date) {
-		return date('m Y', $date) == date('m Y', time());
+	public static function isThisMonth($timestamp) {
+		return date('m Y', $timestamp) == date('m Y', time());
 	}
 	
 	/**
 	 * 判断是否是今年
-	 * @param string $date Unix时间戳
+	 * @param string $timestamp Unix时间戳
 	 */
-	public static function isThisYear($date) {
-		return date('Y', $date) == date('Y', time());
+	public static function isThisYear($timestamp) {
+		return date('Y', $timestamp) == date('Y', time());
 	}
 	
 	/**
 	 * 判断是否是昨天
-	 * @param string $date Unix时间戳
+	 * @param string $timestamp Unix时间戳
 	 */
-	public static function wasYesterday($date) {
-		return date('Y-m-d', $date) == date('Y-m-d', strtotime('yesterday'));
+	public static function isYesterday($timestamp) {
+		return date('Y-m-d', $timestamp) == date('Y-m-d', strtotime('yesterday'));
 	}
-	
-	public static function isThisWeek($date){
+
+
+	/**
+	 * 判断是否是本周
+	 * @param string $timestamp Unix时间戳
+	 */
+	public static function isThisWeek($timestamp){
 		$week = self::thisWeek();
-		return ($date > $week['first_day'] && $date < $week['last_day']);
+		return ($timestamp > $week['first_day'] && $timestamp < $week['last_day']);
 	}
 	
 	/**
-	 * 根据config文件中设置的时间格式返回时间字符串
-	 * @param string $date Unix时间戳
+	 * 根据main.php文件中设置的时间格式返回时间字符串
+	 * @param string $timestamp Unix时间戳
 	 */
-	public static function format($date){
-		if($date != 0){
+	public static function format($timestamp){
+		if($timestamp != 0){
 			static $format;
 			if(!empty($format)){
-				return date($format, $date);
+				return date($format, $timestamp);
 			}else{
 				$config_date = \F::app()->config->get('date');
 				$format = $config_date['format'];
-				return date($format, $date);
+				return date($format, $timestamp);
 			}
 		}else{
 			return null;
@@ -130,15 +135,15 @@ class Date{
 	}
 	
 	/**
-	 * 返回一个简单美化过的时间
-	 * @param string $dateString
+	 * 返回一个简单美化过的时间，例如：“刚刚”，“10秒前”，“昨天 17:43”，“3天前”等。
+	 * @param string $timestamp 时间戳，若不指定或指定为等价于0的值，则返回null
 	 */
-	public static function niceShort($date = null) {
-		if($date == 0){
+	public static function niceShort($timestamp = null) {
+		if($timestamp == 0){
 			return null;
 		}
 		
-		$dv = \F::app()->current_time - $date;
+		$dv = \F::app()->current_time - $timestamp;
 		if($dv < 0){
 			//当前时间之后
 			$dv = - $dv;
@@ -148,17 +153,17 @@ class Date{
 			}else if($dv < 3600){
 				//一小时内
 				return floor($dv / 60).'分钟后';
-			}else if(self::isToday($date)){
+			}else if(self::isToday($timestamp)){
 				//今天内
 				return floor($dv / 3600).'小时后';
 			}else if($dv < (\F::app()->current_time - self::today())+86400*6){
 				//7天内
 				return ceil(($dv - (\F::app()->current_time - self::today())) / 86400) . '天后';
-			}else if(self::isThisYear($date)){
+			}else if(self::isThisYear($timestamp)){
 				//今年
-				return date('n月j日', $date);
+				return date('n月j日', $timestamp);
 			}else{
-				return date('y年n月j日', $date);
+				return date('y年n月j日', $timestamp);
 			}
 		}else{
 			//当前时间之前
@@ -170,23 +175,23 @@ class Date{
 			}else if($dv < 3600){
 				//一小时内
 				return floor($dv / 60).'分钟前';
-			}else if(self::isToday($date)){
+			}else if(self::isToday($timestamp)){
 				//今天内
 				return floor($dv / 3600).'小时前';
 			}else if($dv < (\F::app()->current_time - self::today())+86400*6){
 				//7天内
 				return ceil(($dv - (\F::app()->current_time - self::today())) / 86400) . '天前';
-			}else if(self::isThisYear($date)){
+			}else if(self::isThisYear($timestamp)){
 				//今年
-				return date('n月j日', $date);
+				return date('n月j日', $timestamp);
 			}else{
-				return date('y年n月j日', $date);
+				return date('y年n月j日', $timestamp);
 			}
 		}
 	}
 	
 	/**
-	 * 返回两个时间戳之间的时差
+	 * 返回两个时间戳之间的时差，例如：“1分30秒”，“1小时20分6秒”，“1天3小时16分32秒”。
 	 */
 	public static function diff($start_time, $end_time){
 		$dv = $end_time - $start_time;
@@ -207,14 +212,14 @@ class Date{
 	
 	/**
 	 * 当输入为空字符串时，返回空字符串，其它返回时间戳
-	 * @param string $date
+	 * @param string $timestamp
 	 * @return empty_string|number
 	 */
-	public static function strtotime($date){
-		if($date === ''){
+	public static function strtotime($timestamp){
+		if($timestamp === ''){
 			return '';
 		}else{
-			return strtotime($date);
+			return strtotime($timestamp);
 		}
 	}
 }
