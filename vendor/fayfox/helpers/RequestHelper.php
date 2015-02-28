@@ -46,33 +46,33 @@ class RequestHelper{
 		
 		if(preg_match('/MicroMessenger\/([\.\w]+)$/i', $user_agent, $s)){
 			$s = array('MicroMessenger', $s[1]);
-		}else if(preg_match('/MQQBrowser\/([\d\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/MQQBrowser\/([\d\.]+)/i', $user_agent, $s)){
 			$s = array('MQQBrowser', $s[1]);
-		}else if(preg_match('/QQBrowser\/([\d\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/QQBrowser\/([\d\.]+)/i', $user_agent, $s)){
 			$s = array('QQBrowser', $s[1]);
-		}else if(preg_match('/QQ\/([\d\.]+)$/', $user_agent, $s)){
+		}else if(preg_match('/QQ\/([\d\.]+)$/i', $user_agent, $s)){
 			$s = array('QQ', $s[1]);
-		}else if(preg_match('/QQ\/([\d\.]+)$/', $user_agent, $s)){
+		}else if(preg_match('/QQ\/([\d\.]+)$/i', $user_agent, $s)){
 			$s = array('QQ', $s[1]);
-		}else if(preg_match('/Qzone\/([\w_\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/Qzone\/([\w_\.]+)/i', $user_agent, $s)){
 			$s = array('Qzone', $s[1]);
-		}else if(preg_match('/TaoBrowser\/([\d\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/TaoBrowser\/([\d\.]+)/i', $user_agent, $s)){
 			$s = array('Tao', $s[1]);
-		}else if(preg_match('/BIDUBrowser\/([\w\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/BIDUBrowser\/([\w\.]+)/i', $user_agent, $s)){
 			$s = array('BaiDu', $s[1]);
-		}else if(preg_match('/LBBROWSER/', $user_agent, $s)){
+		}else if(preg_match('/LBBROWSER/i', $user_agent, $s)){
 			$s = array('LBBROWSER', '');
-		}else if(preg_match('/Maxthon\/([\d\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/Maxthon[\/ ]([\d\.]+)/i', $user_agent, $s)){
 			$s = array('Maxthon', $s[1]);
-		}else if(preg_match('/SE ([\w\.]+) MetaSr 1.0/', $user_agent, $s)){
+		}else if(preg_match('/SE ([\w\.]+) MetaSr 1.0/i', $user_agent, $s)){
 			$s = array('Sougou', $s[1]);
-		}else if(preg_match('/TheWorld ([\d\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/TheWorld ([\d\.]+)/i', $user_agent, $s)){
 			$s = array('TheWorld', $s[1]);
-		}else if(preg_match('/TheWorld/', $user_agent, $s)){
+		}else if(preg_match('/TheWorld/i', $user_agent, $s)){
 			$s = array('TheWorld', '');
-		}else if(preg_match('/2345Explorer ([\d\.]+)/', $user_agent, $s)){
+		}else if(preg_match('/2345Explorer ([\d\.]+)/i', $user_agent, $s)){
 			$s = array('2345Explorer', $s[1]);
-		}else if(preg_match('/360SE/', $user_agent, $s)){
+		}else if(preg_match('/360SE/i', $user_agent, $s)){
 			$s = array('360SE', '');
 		}else{
 			$s = array('', '');

@@ -1,5 +1,3 @@
-<?php
-?>
 <div class="col-2-1">
 	<div class="col-left">
 		<div class="col-content">
@@ -10,7 +8,7 @@
 		<div class="col-content">
 			<?php echo F::app()->widget->render('backend/js_info');?>
 			<?php 
-				if($browser['nav'] == 'msie' && $browser['ver'] == '6.0'){
+				if($browser[0] == 'msie' && $browser[1] == '6.0'){
 			?>
 			<div class="box">
 				<div class="box-title">

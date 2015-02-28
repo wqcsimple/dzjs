@@ -5,7 +5,7 @@ use fayfox\helpers\Html;
 use fayfox\models\Option;
 
 $browser = RequestHelper::getBrowser();
-if($browser['nav'] == 'msie' && $browser['ver'] == '6.0'){
+if($browser[0] == 'msie' && $browser[1] == '6.0'){
 	$postfix = '-IE6';
 }else{
 	$postfix = '';

@@ -25,7 +25,7 @@ $boxes_cp = $enabled_boxes;?>
 		<div class="col-content dragsort" id="dashboard-left">
 		<?php 
 			$browser = RequestHelper::getBrowser();
-			if($browser['nav'] == 'msie' && ($browser['ver'] == '6.0' || $browser['ver'] == '7.0')){
+			if($browser[0] == 'msie' && ($browser[1] == '6.0' || $browser[1] == '7.0')){
 		?>
 			<div class="box">
 				<div class="box-title">

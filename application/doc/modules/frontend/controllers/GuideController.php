@@ -34,7 +34,7 @@ class GuideController extends FrontController{
 		}
 		$this->layout->breadcrumb = $breadcrumb;
 		
-		if($cat['right_value'] - $cat['left_value']){
+		if($cat['right_value'] - $cat['left_value'] == 1){
 			//叶子节点
 			$this->view->assign(array(
 				'cat'=>$cat,
@@ -44,6 +44,8 @@ class GuideController extends FrontController{
 			//非叶子
 			$this->view->assign(array(
 				'cat'=>$cat,
+				'cats'=>Category::model()->getNextLevelByParentId($cat['id']),
+				'posts'=>Post::model()->getByCat($cat, 0, 'id,title,content,content_type', false, 'is_top DESC, sort, publish_time ASC'),
 			))->render('cats');
 		}
 	}
