@@ -20,7 +20,8 @@ class FileController extends FrontController{
 					header("Content-Length: ".strlen($data));
 				}else{
 					header('Content-Type: "'.$file['file_type'].'"');
-					header('Content-Disposition: attachment; filename="'.$file['raw_name'].$file['file_ext'].'"');
+// 					header('Content-Disposition: attachment; filename="'.$file['raw_name'].$file['file_ext'].'"');
+					header('Content-Disposition: attachment; filename="'.date('YmdHis', $file['upload_time']).$file['file_ext'].'"');
 					header("Content-Transfer-Encoding: binary");
 					header('Expires: 0');
 					header('Pragma: no-cache');

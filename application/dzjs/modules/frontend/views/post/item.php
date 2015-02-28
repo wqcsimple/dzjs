@@ -1,6 +1,7 @@
 <?php 
 use fayfox\helpers\Html;
 use fayfox\helpers\Date;
+use fayfox\models\File;
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/fuye.css')?>">
  <div class="alltop"><?php F::app()->widget->load('post-banner-image')?></div>
@@ -28,7 +29,20 @@ use fayfox\helpers\Date;
       <h3> 时间：<?php echo Html::encode(Date::format($content['publish_time']))?>&nbsp;&nbsp;作者：admin&nbsp;&nbsp;阅读数：<?php echo $content['views']?></h3>
 		<div class="content">
 			<?php echo $content['content']?>
-		
+		     
+		     <div class="download">
+		     <?php
+		     
+							if(!empty($content['files'])){
+								echo '附件：';
+								foreach($content['files'] as $f){
+									echo Html::link($f['description'], array('file/download', array(
+										'id'=>$f['file_id'],
+									)));
+								}
+							}
+						?>
+		  </div>
 		</div>
   </div>
   </div>

@@ -53,7 +53,7 @@ use fayfox\helpers\Html;
 	  e.preventDefault();
 	  $('#loading').show();
       $.ajax({
-        url: system.url('chat/create'),
+        url: system.url('chat/create.shtml'),
         type: 'post',
         dataType: 'json',
         data: $('#message').serialize(),
