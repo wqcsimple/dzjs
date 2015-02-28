@@ -29,8 +29,14 @@ return array(
 
     /*
      * 当前application包含的模块
-*/
+     */
     'modules'=>array(
         'frontend'
     ),
+    
+    /*
+     * 默认url后缀
+     * 可通过config/ext.php配置文件对单独的url再做设置
+     */
+    'url_suffix'=>'.shtml',
 );
