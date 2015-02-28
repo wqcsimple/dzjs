@@ -36,13 +36,15 @@ use fayfox\models\tables\Files;
 		     <?php
 		   
 							if(!empty($content['files'])){
-								echo "附件：<i class='icon-attach'></i>";
-								foreach($content['files'] as $f){
+								echo "附件：";
+								foreach($content['files'] as $k => $f){
+								    $k++;
+								    echo "<div class='files'>".$k.".<i class='icon-attach'></i>";
 									echo Html::link($f['description'], array('file/download', array(
 										'id'=>$f['file_id'],
 									    'name'=>'date',
 									)));
-									echo "<span> (下载次数:".File::model()->getDownloads($f['file_id']).")</span>";
+									echo "<span> (下载次数:".File::model()->getDownloads($f['file_id']).")</span></div>";
 								}
 							}
 						?>
@@ -50,6 +52,22 @@ use fayfox\models\tables\Files;
 				
 		  </div>
 		</div>
+		<div class="post-nav">
+							<p>上一篇：<?php if($content['nav']['prev']){
+								echo Html::link($content['nav']['prev']['title'], array(
+									'post/'.$content['nav']['prev']['id'],
+								));
+							}else{
+								echo '没有了';
+							}?></p>
+							<p>下一篇：<?php if($content['nav']['next']){
+								echo Html::link($content['nav']['next']['title'], array(
+									'post/'.$content['nav']['next']['id'],
+								));
+							}else{
+								echo '没有了';
+							}?></p>
+						</div>
   </div>
   </div>
  </div>

@@ -141,7 +141,9 @@ class PostController extends AdminController{
 				));
 				
 				$this->actionlog(Actionlogs::TYPE_POST, '添加文章', $post_id);
-				Response::output('success', '文章发布成功');
+				Response::output('success', '文章发布成功', array('admin/post/edit', array(
+					'id'=>$post_id,
+				)));
 			}else{
 				$this->showDataCheckError($this->form()->getErrors());
 			}
