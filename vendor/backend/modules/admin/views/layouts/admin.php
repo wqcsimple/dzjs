@@ -31,7 +31,7 @@ system.user_id = '<?php echo F::app()->session->get('id', 0)?>';
 <script type="text/javascript" src="<?php echo $this->url()?>js/custom/admin/common.js"></script>
 <title><?php echo $subtitle?> | <?php echo Option::get('sitename')?>后台</title>
 </head>
-<body class="<?php $admin_body_class = Setting::model()->get('admin_body_class');echo $admin_body_class['class']?>">
+<body class="<?php $admin_body_class = Setting::model()->get('admin_body_class');echo $admin_body_class['class']?>" id="fayfox-backend">
 <div class="wrapper">
 	<div class="adminbar">
 		<ul class="adminbar-left">

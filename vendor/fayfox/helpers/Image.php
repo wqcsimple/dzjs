@@ -1,11 +1,14 @@
 <?php
 namespace fayfox\helpers;
 
+use fayfox\core\Exception;
+
 class Image{
 	/**
 	 * 获取图片资源
+	 * @return resource
 	 */
-	public static function get_img($filename){
+	public static function getImage($filename){
 		$imageInfo = getimagesize($filename);
 		$img_mime = strtolower($imageInfo['mime']);
 		switch ($img_mime) {
@@ -25,18 +28,17 @@ class Image{
 		}
 		
 		if($im == 'unknow') {
-			exit('未知图片类型');
-			unset($im);
+			throw new Exception('未知图片类型');
 		}
 		return $im;
 	}
 	
 	/**
 	 * 水平翻转图片
-	 * @param $src_img:原图片资源
-	 * @return $dst_img:新图片资源
+	 * @param resource $src_img 原图片资源
+	 * @return resource 新图片资源
 	 */
-	public static function flip_h($src_img){
+	public static function flipHorizontal($src_img){
 		$dst_img_width = imagesx($src_img);
 		$dst_img_height = imagesy($src_img);
 		$dst_img = imagecreatetruecolor($dst_img_width, $dst_img_height);
@@ -49,10 +51,10 @@ class Image{
 	
 	/**
 	 * 垂直翻转图片
-	 * @param $src_img:原图片资源
-	 * @return $dst_img:新图片资源
+	 * @param resource $src_img 原图片资源
+	 * @return resource 新图片资源
 	 */
-	public static function flip_v($src_img){
+	public static function flipVertical($src_img){
 		$dst_img_width = imagesx($src_img);
 		$dst_img_height = imagesy($src_img);
 		$dst_img = imagecreatetruecolor($dst_img_width, $dst_img_height);
@@ -64,9 +66,9 @@ class Image{
 	
 	/**
 	 * 旋转一定角度，逆时针旋转
-	 * @param $src_img:原图片资源
-	 * @param $angle角度
-	 * @return $dst_img新图片资源
+	 * @param resource $src_img 原图片资源
+	 * @param int $angle 角度
+	 * @return resource 新图片资源
 	 */
 	public static function rotate($src_img, $degrees){
 		$dst_img = imagerotate($src_img, $degrees, 0);
@@ -76,9 +78,9 @@ class Image{
 	
 	/**
 	 * 按比例调整大小
-	 * @param $src_img:原图片资源
-	 * @param $percent:比例
-	 * @return $dst_img新图片资源
+	 * @param resource $src_img 原图片资源
+	 * @param int $percent 比例
+	 * @return resource 新图片资源
 	 */
 	public static function scalesc($src_img, $percent){
 		$dst_img_width = imagesx($src_img) * $percent;
@@ -89,9 +91,18 @@ class Image{
 		return $dst_img;
 	}
 	
-	public static function cut($src_img, $x, $y, $w, $h){
-		$dst_img = ImageCreateTrueColor( $w, $h );
-		imagecopyresampled($dst_img, $src_img, 0, 0, $x, $y, $w, $h, $w, $h);
+	/**
+	 * 根据指定起始点坐标点，宽高对图片进行裁剪
+	 * @param resource $src_img
+	 * @param int $x
+	 * @param int $y
+	 * @param int $width
+	 * @param int $height
+	 * @return resource
+	 */
+	public static function cut($src_img, $x, $y, $width, $height){
+		$dst_img = ImageCreateTrueColor($width, $height);
+		imagecopyresampled($dst_img, $src_img, 0, 0, $x, $y, $width, $height, $width, $height);
 		return $dst_img;
 	}
 	
@@ -99,9 +110,10 @@ class Image{
 	 * 水平切割图片，从左到右取$width长度
 	 * 
 	 * @param resource $src_img
-	 * @param float $width
+	 * @param int $width
+	 * @return resource
 	 */
-	public static function cut_h($src_img, $width){
+	public static function cutHorizontal($src_img, $width){
 		$dst_img_width = $width;
 		$dst_img_height = imagesy($src_img);
 		$dst_img = imagecreatetruecolor($dst_img_width, $dst_img_height);
@@ -114,9 +126,10 @@ class Image{
 	 * 垂直切割图片，从上往下取$height长度
 	 * 
 	 * @param resource $src_img
-	 * @param float $height
+	 * @param int $height
+	 * @return resource
 	 */
-	public static function cut_v($src_img, $height){
+	public static function cutVertical($src_img, $height){
 		$dst_img_width = imagesx($src_img);
 		$dst_img_height = $height;
 		$dst_img = imagecreatetruecolor($dst_img_width, $dst_img_height);
@@ -129,8 +142,9 @@ class Image{
 	 * 按比例缩放图片，并按规格裁剪
 	 * 
 	 * @param resource $src_img
-	 * @param float $width
-	 * @param float $height
+	 * @param int $width
+	 * @param int $height
+	 * @return resource
 	 */
 	public static function zoom($src_img, $width, $height){
 		$src_img_width = imagesx($src_img);
@@ -152,12 +166,13 @@ class Image{
 	}
 	
 	/**
-	 * 用小图填充整个大图背景
+	 * 用小图填充整个大图背景，用小图片铺满背景
 	 * 
 	 * @param resource $src_img
 	 * @param string $img_file 文件路径
+	 * @return resource
 	 */
-	public static function fillbyimage($src_img, $img_file){
+	public static function fillByImage($src_img, $img_file){
 		$mat_img = self::get_img($img_file);
 		$mat_img_width = imagesx($mat_img);
 		$mat_img_height = imagesy($mat_img);
@@ -172,11 +187,11 @@ class Image{
 	}
 	
 	/**
-	 * 给图片添加一条1像素宽的边框
+	 * 给图片添加一条1像素宽的边框（图片不会变大，最外层1像素会被覆盖）
 	 * @param resource $src_img
-	 * @param array $color RGB色数组
+	 * @param array $color RGB色数组，如array(255, 255, 255)
 	 */
-	public static function addborder($src_img, $color){
+	public static function addBorder($src_img, $color){
 		$src_width = imagesx($src_img);
 		$src_height = imagesy($src_img);
 		$lincolor = imagecolorallocate($src_img, $color[0], $color[1], $color[2]);

@@ -2,6 +2,10 @@
 namespace fayfox\helpers;
 
 class RequestHelper{
+	/**
+	 * 获取客户端IP
+	 * @return ip
+	 */
 	public static function getIP(){
 		if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
 			$arr = explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
@@ -21,7 +25,7 @@ class RequestHelper{
 	}
 	
 	/**
-	 * 将ip转换为int存储，兼容32位和64位机器
+	 * 将ip转换为int存储，返回32位机器的int值
 	 * @param ip $ip
 	 * @return int
 	 */
@@ -32,44 +36,62 @@ class RequestHelper{
 		return $r;
 	}
 	
+	/**
+	 * 根据$_SERVER['HTTP_USER_AGENT']获取浏览器类型
+	 * @param string $user_agent
+	 * @return array
+	 */
 	public static function getBrowser($user_agent = null){
 		$user_agent === null && $user_agent = $_SERVER['HTTP_USER_AGENT'];
-		$browsers = 'mozilla msie gecko firefox ';
-		$browsers.= 'konqueror safari netscape navigator ';
-		$browsers.= 'opera mosaic lynx amaya omniweb';
-		$browsers = explode(' ', $browsers);
-	
-		$nua = strToLower($user_agent);
-		$l = strlen($nua);
-		for ($i=0; $i<count($browsers); $i++){
-			$browser = $browsers[$i];
-			$n = stristr($nua, $browser);
-			if(strlen($n)>0){
-				$temp['ver'] = '';
-				$temp['nav'] = $browser;
-				$j=strpos($nua, $temp['nav'])+$n+strlen($temp['nav'])+1;
-				for (; $j<=$l; $j++){
-					$s = substr ($nua, $j, 1);
-					if(is_numeric($temp['ver'].$s) )
-						$temp['ver'] .= $s;
-					else
-						break;
-				}
-			}
-		}
-		if(isset($temp['nav']) && $temp['nav'] != ''){
-			return array(
-				'nav'=>$temp['nav'],
-				'ver'=>$temp['ver'],
-			);
+		
+		if(preg_match('/MicroMessenger\/([\.\w]+)$/i', $user_agent, $s)){
+			$s = array('MicroMessenger', $s[1]);
+		}else if(preg_match('/MQQBrowser\/([\d\.]+)/', $user_agent, $s)){
+			$s = array('MQQBrowser', $s[1]);
+		}else if(preg_match('/QQBrowser\/([\d\.]+)/', $user_agent, $s)){
+			$s = array('QQBrowser', $s[1]);
+		}else if(preg_match('/QQ\/([\d\.]+)$/', $user_agent, $s)){
+			$s = array('QQ', $s[1]);
+		}else if(preg_match('/QQ\/([\d\.]+)$/', $user_agent, $s)){
+			$s = array('QQ', $s[1]);
+		}else if(preg_match('/Qzone\/([\w_\.]+)/', $user_agent, $s)){
+			$s = array('Qzone', $s[1]);
+		}else if(preg_match('/TaoBrowser\/([\d\.]+)/', $user_agent, $s)){
+			$s = array('Tao', $s[1]);
+		}else if(preg_match('/BIDUBrowser\/([\w\.]+)/', $user_agent, $s)){
+			$s = array('BaiDu', $s[1]);
+		}else if(preg_match('/LBBROWSER/', $user_agent, $s)){
+			$s = array('LBBROWSER', '');
+		}else if(preg_match('/Maxthon\/([\d\.]+)/', $user_agent, $s)){
+			$s = array('Maxthon', $s[1]);
+		}else if(preg_match('/SE ([\w\.]+) MetaSr 1.0/', $user_agent, $s)){
+			$s = array('Sougou', $s[1]);
+		}else if(preg_match('/TheWorld ([\d\.]+)/', $user_agent, $s)){
+			$s = array('TheWorld', $s[1]);
+		}else if(preg_match('/TheWorld/', $user_agent, $s)){
+			$s = array('TheWorld', '');
+		}else if(preg_match('/2345Explorer ([\d\.]+)/', $user_agent, $s)){
+			$s = array('2345Explorer', $s[1]);
+		}else if(preg_match('/360SE/', $user_agent, $s)){
+			$s = array('360SE', '');
 		}else{
-			return array(
-				'nav'=>'unknown',
-				'ver'=>'unknown',
-			);
-		}
+			$s = array('', '');
+		} 
+		
+		if(preg_match('/rv:([\d\.]+)\) like gecko/i', $user_agent, $b)) return array('IE', $b[1], $s[0], $s[1]);
+		if(preg_match('/MSIE ([\d\.]+)/i', $user_agent, $b)) return array('IE', $b[1], $s[0], $s[1]);
+		
+		if(preg_match('/Firefox\/([\d\.]+)/i', $user_agent, $b)) return array('Firefox', $b[1], $s[0], $s[1]);
+		if(preg_match('/Chrome\/([\d\.]+)/i', $user_agent, $b)) return array('Chrome', $b[1], $s[0], $s[1]);
+		if(preg_match('/Opera.([\d\.]+)/i', $user_agent, $b)) return array('Opera', $b[1], $s[0], $s[1]);
+		if(preg_match('/Safari\/([\d\.]+)/i', $user_agent, $b)) return array('Safari', $b[1], $s[0], $s[1]);
+		
+		return array('other', '', $s[0], $s[1]);
 	}
 	
+	/**
+	 * 根据$_SERVER['HTTP_USER_AGENT']判断是否是蜘蛛访问
+	 */
 	public static function isSpider(){
 		if(!isset($_SERVER['HTTP_USER_AGENT'])){
 			return false;
@@ -87,6 +109,11 @@ class RequestHelper{
 		return false;
 	}
 	
+	/**
+	 * 根据$_SERVER['HTTP_REFERER']判断来源是否是搜索引擎
+	 * @param string $refer
+	 * @return multitype:string
+	 */
 	public static function getSearchEngine($refer = null){
 		$refer === null && $refer = $_SERVER['HTTP_REFERER'];
 		$parse_url = parse_url($refer);

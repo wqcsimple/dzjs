@@ -2,6 +2,8 @@
 use fayfox\helpers\Html;
 use fayfox\helpers\Date;
 use fayfox\models\File;
+use fayfox\models\tables\Files;
+
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/fuye.css')?>">
  <div class="alltop"><?php F::app()->widget->load('post-banner-image')?></div>
@@ -32,16 +34,20 @@ use fayfox\models\File;
 		     
 		     <div class="download">
 		     <?php
-		     
+		   
 							if(!empty($content['files'])){
-								echo '附件：';
+								echo "附件：<i class='icon-attach'></i>";
 								foreach($content['files'] as $f){
 									echo Html::link($f['description'], array('file/download', array(
 										'id'=>$f['file_id'],
+									    'name'=>'date',
 									)));
+									echo "<span> (下载次数:".File::model()->getDownloads($f['file_id']).")</span>";
 								}
 							}
 						?>
+			
+				
 		  </div>
 		</div>
   </div>

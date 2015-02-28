@@ -176,7 +176,7 @@ class File extends Model{
 					'type'=>$type,
 				);
 				$data['id'] = Files::model()->insert($data);
-				$src_img = Image::get_img((defined('NO_REWRITE') ? './public/' : '').$data['file_path'].$data['raw_name'].$data['file_ext']);
+				$src_img = Image::getImage((defined('NO_REWRITE') ? './public/' : '').$data['file_path'].$data['raw_name'].$data['file_ext']);
 				$img = Image::zoom($src_img, 100, 100);
 				imagejpeg($img, (defined('NO_REWRITE') ? './public/' : '').$data['file_path'].$data['raw_name'].'-100x100.jpg');
 				$data['error'] = 0;
@@ -368,5 +368,14 @@ class File extends Model{
 			self::createFolder($dir);
 		}
 		file_put_contents($file, $data);
+	}
+	
+	/**
+	 * 获取文件下载次数
+	 * @param int $file_id 文件ID
+	 */
+	public static function getDownloads($file_id){
+		$file = Files::model()->find($file_id, 'downloads');
+		return $file['downloads'];
 	}
 }

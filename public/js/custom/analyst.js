@@ -96,7 +96,7 @@ var _fa = {
 		}else{
 			s = ['', ''];
 		} 
-		 
+		
 		if(b = ua.match(/rv:([\d\.]+)\) like gecko/i)) return ['IE', b[1], s[0], s[1]];
 		if(b = ua.match(/MSIE ([\d\.]+)/i)) return ['IE', b[1], s[0], s[1]];
 		

@@ -168,11 +168,22 @@ class FileController extends AdminController{
 	public function download(){
 		if($file_id = $this->input->get('id', 'intval')){
 			if($file = Files::model()->find($file_id)){
+				//可选下载文件名格式
+				if($this->input->get('name') == 'date'){
+					$filename = date('YmdHis', $file['upload_time']).$file['file_ext'];
+				}else if($this->input->get('name') == 'timestamp'){
+					$filename = $file['upload_time'].$file['file_ext'];
+				}else if($this->input->get('name') == 'client_name'){
+					$filename = $file['client_name'];
+				}else{
+					$filename = $file['raw_name'].$file['file_ext'];
+				}
+				
 				Files::model()->inc($file_id, 'downloads', 1);
 				$data = file_get_contents((defined('NO_REWRITE') ? './public/' : '').$file['file_path'].$file['raw_name'].$file['file_ext']);
 				if (strpos($_SERVER['HTTP_USER_AGENT'], "MSIE") !== FALSE){
 					header('Content-Type: "'.$file['file_type'].'"');
-					header('Content-Disposition: attachment; filename="'.$file['raw_name'].$file['file_ext'].'"');
+					header('Content-Disposition: attachment; filename="'.$filename.'"');
 					header('Expires: 0');
 					header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 					header("Content-Transfer-Encoding: binary");
@@ -180,7 +191,7 @@ class FileController extends AdminController{
 					header("Content-Length: ".strlen($data));
 				}else{
 					header('Content-Type: "'.$file['file_type'].'"');
-					header('Content-Disposition: attachment; filename="'.$file['raw_name'].$file['file_ext'].'"');
+					header('Content-Disposition: attachment; filename="'.$filename.'"');
 					header("Content-Transfer-Encoding: binary");
 					header('Expires: 0');
 					header('Pragma: no-cache');
@@ -316,7 +327,7 @@ class FileController extends AdminController{
 		if(!$h)throw new HttpException('不完整的请求', 500);
 		
 		if($file !== false){
-			$img = Image::get_img((defined('NO_REWRITE') ? './public/' : '').$file['file_path'].$file['raw_name'].$file['file_ext']);
+			$img = Image::getImage((defined('NO_REWRITE') ? './public/' : '').$file['file_path'].$file['raw_name'].$file['file_ext']);
 		
 			if($dw == 0){
 				$dw = $w;
@@ -366,7 +377,7 @@ class FileController extends AdminController{
 		}
 		
 		if($file !== false){
-			$img = Image::get_img((defined('NO_REWRITE') ? './public/' : '').$file['file_path'].$file['raw_name'].$file['file_ext']);
+			$img = Image::getImage((defined('NO_REWRITE') ? './public/' : '').$file['file_path'].$file['raw_name'].$file['file_ext']);
 		
 			$img = Image::zoom($img, $dw, $dh);
 		
@@ -387,7 +398,7 @@ class FileController extends AdminController{
 					break;
 			}
 		}else{
-			$img = Image::get_img($spare);
+			$img = Image::getImage($spare);
 			header('Content-type: image/jpeg');
 			$img = Image::zoom($img, $dw, $dh);
 			imagejpeg($img);

@@ -127,10 +127,10 @@
 .left .bt .inbtnr{background: url("../images/inbtnr.gif") 0 center no-repeat;width: 13px;height:35px;   float:left;margin-left:10px;}
 
 .left .zlxz{width: 400px;height: 240px;float: left;background-color: #F9F9F9;border: 1px solid #dcdcdc;margin-bottom:10px;border-radius: 5px;box-shadow:3px 3px rgba(0,0,0,.2);}
-.left .zlxz ul{width: 350px;padding-left: 10px;float: left;}
-.left .zlxz ul li{width: 340px;padding-left: 10px;color: #313131;float: left;padding-top: 6px;}
+.left .zlxz ul{width: 370px;padding-left: 10px;float: left;}
+.left .zlxz ul li{width: 340px;padding-left: 20px;color: #313131;float: left;padding-top: 6px;}
 .left .zlxz ul li span{text-align: right;font-size: 12px;float: right;}
-.left .zlxz ul li a{font-size: 14px;width: 280px;display: block;float: right;line-height: 140%;}
+.left .zlxz ul li a{font-size: 14px;width: 280px;display: block;float: left;line-height: 140%;}
 .left .zlxz ul li a:hover{color:#FF4040;}
 
 .right{width: 580px;float: left;padding-right: 8px;_padding-right:4p;}
@@ -154,14 +154,14 @@
 
 .right .kcxw .bt{width: 250px;}
 .right .kcxw{width: 283px;height: 240px;float: left;background: #F9F9F9;border: 1px solid #dcdcdc;margin-bottom: 10px;border-radius: 5px;box-shadow: 3px 3px rgba(0,0,0,.1);margin-right: 9px;}
-.right .kcxw ul{width: 270px;float: left;padding-left: 20px;}
-.right .kcxw ul li{width: 270px;color: #313131;float: left;padding-top: 6px;}
+.right .kcxw ul{width: 260px;float: left;padding-left: 20px;}
+.right .kcxw ul li{width: 270px;color: #313131;float: left;padding: 6px 0 0 10px;}
 .right .kcxw ul li a{font-size: 14px;width: 270px ;display: block;float: right;line-height: 140%;}
 .right .kcxw ul li a:hover{color:#FF4040;}
 
 .right .xsdt{width: 283px;height: 240px;float: left;background: #F9F9F9;border: 1px solid #dcdcdc;margin-bottom: 10px;border-radius: 5px;box-shadow: 3px 3px rgba(0,0,0,.1);}
-.right .xsdt ul{width: 270px;float: left;padding-left: 20px;}
-.right .xsdt ul li{width: 270px;color: #313131;float: left;padding-top: 6px;}
+.right .xsdt ul{width: 260px;float: left;padding-left: 20px;}
+.right .xsdt ul li{width: 270px;color: #313131;float: left;padding: 6px 0 0 10px;}
 .right .xsdt ul li a{font-size: 14px; width: 270px;display: block;float: right;line-height: 140%}
 .right .xsdt ul li a:hover{color:#FF4040;}
 .right .xsdt .bt{width: 250px;}
