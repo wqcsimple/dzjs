@@ -27,7 +27,7 @@ _fa.init();
 
 <script>
 $(function(){
-
+/* 微信显示 */
 	$('.blog').hover(function() {
 		$('.send p').show();
 	}, function() {
@@ -36,7 +36,7 @@ $(function(){
 });
 
 
-
+/* 加入收藏代码 */
 function AddFavorite(sURL, sTitle) {
     try {
         window.external.addFavorite(sURL, sTitle)

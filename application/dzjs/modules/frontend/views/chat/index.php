@@ -47,26 +47,7 @@ use fayfox\helpers\Html;
     
 
 </div>
-
+<script src="<?php echo $this->staticFile('js/chat.js');?>"></script>
 <script>
-  $(document).on('click', '#sub-message', function(e){
-	  e.preventDefault();
-	  $('#loading').show();
-      $.ajax({
-        url: system.url('chat/create.shtml'),
-        type: 'post',
-        dataType: 'json',
-        data: $('#message').serialize(),
-        success: function(data){
-          if (data.status) {
-            alert(data.message);
-            window.location.reload();
-          }else{
-            alert(data.message);
-          }
-        }
-      });
-    });
-
-
+  chat.init();
 </script>

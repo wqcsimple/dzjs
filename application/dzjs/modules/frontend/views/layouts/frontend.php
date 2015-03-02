@@ -22,17 +22,17 @@ echo Option::get('sitename')?></title>
 									}else{
 										echo Option::get('seo_index_description');
 									}?>" />
-      <link type="image/x-icon" href="<?php echo $this->url()?>favicon.ico" rel="shortcut icon" />
+        <link type="image/x-icon" href="<?php echo $this->url()?>favicon.ico" rel="shortcut icon" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/common.css')?>">
 	<link rel="stylesheet" href="<?php echo $this->staticFile('css/fontello.css')?>" media="all" />
 
 	<script type="text/javascript" src="<?php echo $this->staticFile('js/jquery.js')?>"></script>
 	<script type="text/javascript" src="<?php echo $this->url()?>js/custom/system.min.js"></script>
-    <script>
-        system.base_url = '<?php echo $this->url()?>';
-        system.user_id = '<?php echo F::app()->session->get('id', 0)?>';
-    </script>
-<?php echo $this->getCss()?>
+        <script>
+            system.base_url = '<?php echo $this->url()?>';
+            system.user_id = '<?php echo F::app()->session->get('id', 0)?>';
+        </script>
+        <?php echo $this->getCss()?>
 </head>
 <body>
 	<?php include '_header.php'; ?>
