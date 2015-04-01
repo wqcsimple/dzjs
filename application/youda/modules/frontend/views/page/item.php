@@ -1,1 +1,0 @@
-<div id="page-item"><?php echo $page['content'];?></div>

@@ -8,9 +8,9 @@ return array(
      * 数据库参数
 */
     'db'=>array(
-        'host'=>'114.215.134.73',					//数据库服务器
-        'user'=>'whis',							//用户名
-        'password'=>'chen19921012',							//密码
+        'host'=>'db',					//数据库服务器
+        'user'=>'wwhis',							//用户名
+        'password'=>'ejsFPe4SLPx5wC1W',							//密码
         'port'=>3306,							//端口
         'dbname'=>'fayfox_dzjs',					//数据库名
         'charset'=>'utf8',						//数据库编码方式
