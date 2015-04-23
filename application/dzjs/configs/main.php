@@ -25,7 +25,7 @@ return array(
     /*
      * 若为true，则页面地步会列出所有被执行的sql语句等信息
      */
-    'debug'=>true,
+    'debug'=> false,
 
     /*
      * 当前application包含的模块
