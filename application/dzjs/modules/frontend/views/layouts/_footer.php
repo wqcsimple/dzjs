@@ -12,7 +12,7 @@ use fayfox\models\Analyst;
             <p><?php echo Option::get('copyright')?> </p>
             <p>今日访问量：<?php echo Analyst::model()->getPV()?> 总访问量：<?php echo Analyst::model()->getAllPV()?></p>
         </div>
-<script type="text/javascript" src="<?php echo $this->url()?>js/custom/analyst-min.js"></script>
+<script type="text/javascript" src="<?php echo $this->url()?>js/custom/analyst.min.js"></script>
 <script>
 _fa.init();
 </script>
