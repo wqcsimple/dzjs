@@ -1,4 +1,4 @@
-<?php 
+<?php
 use fayfox\models\Option;
 use fayfox\helpers\Html;
 ?>
@@ -10,13 +10,13 @@ use fayfox\helpers\Html;
 	echo $title, ' - ';
 }
 echo Option::get('sitename')?></title>
-	<meta name="keywords" content="<?php 
+	<meta name="keywords" content="<?php
 									if($keywords !== ''){
 										echo Html::encode($keywords);
 									}else{
 										echo Option::get('seo_index_keywords');
 									}?>" />
-	<meta name="description" content="<?php 
+	<meta name="description" content="<?php
 									if($keywords !== ''){
 										echo Html::encode($description);
 									}else{
@@ -38,6 +38,7 @@ echo Option::get('sitename')?></title>
 	<?php include '_header.php'; ?>
 	<?php echo $content ?>
 	<?php include '_footer.php'; ?>
+
 
 
 </body>
