@@ -108,7 +108,7 @@ DD_belatedPNG.fix('fieldset,.ring');
 			<div class="content-3 hide">
 				<p>QQ:369281831</p>
 				<p>E-mail:<a href="mailto:admin@fayfox.com">admin@fayfox.com</a></p>
-				<p>© <a href="http://www.fayfox.com">fayfox.com</a></p>
+				<p>© <a href="http://www.fayfox.com">whis.wang</a></p>
 				<p>2011-2014</p>
 			</div>
 		</div>
@@ -120,7 +120,7 @@ DD_belatedPNG.fix('fieldset,.ring');
 	}?>">
 		<div class="login-form-container">
 			<form method="post" id="login-form">
-				<fieldset class="logo">Fayfox</fieldset>
+				<fieldset class="logo">wwhis</fieldset>
 				<div class="error-msg"><?php if(isset($error))echo $error;?></div>
 				<fieldset class="input-container username">
 					<?php echo F::form()->inputText('username', array(
