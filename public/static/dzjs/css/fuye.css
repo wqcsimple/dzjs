@@ -55,7 +55,7 @@ box-shadow:2px 2px 10px #909090;/*opera或ie9*/}
 .paginator li a:hover{*height:24px;padding:4px 7px 5px;*padding:0 7px;border:none;*line-height:24px;background:#00a0e9;color:#FFFFFF;text-decoration:none; }
 .paginator li a.nolink{color:#ccc;cursor:default;}
 .paginator li a.nolink:hover{background:transparent;*height:22px;padding:3px 6px 4px;*padding:0 6px;border:1px solid #ccc;*line-height:22px;}
-.paginator .fdyb{ text-align:right; float:right; *margin-top:-18px;_margin-top:-18px;color:#a0a0a0; font-size:14px;}
+.paginator .fdyb { text-align:right; float:right; *margin-top:-18px; _margin-top:-18px;color:#a0a0a0; font-size:14px;}
 
 
 .container textarea{width: 98%;padding: 1%;height: 60px;overflow: hidden;margin:0 0 3px 10px;}
@@ -71,4 +71,4 @@ box-shadow:2px 2px 10px #909090;/*opera或ie9*/}
 .message-list .children-list li{background-color:#F5F5F5;padding: 6px 12px;margin-bottom: 8px;border: 0 none; line-height: 20px;word-wrap: break-word;}
 .message-list .children-list .un{float: left;margin-right: 4px;}
 .message-list .children-list .un a{color: #35b3ea;}
-.message-list .children-list .reply-child-link{color: #969ba2};
+.message-list .children-list .reply-child-link{color: #969ba2;}
