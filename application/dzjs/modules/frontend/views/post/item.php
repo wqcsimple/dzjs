@@ -51,20 +51,22 @@ use fayfox\models\tables\Files;
 			  </div>
 			</div>
 			<div class="post-nav">
-								<p>上一篇：<?php if($content['nav']['prev']){
-									echo Html::link($content['nav']['prev']['title'], array(
-										'post/'.$content['nav']['prev']['id'],
-									));
-								}else{
-									echo '没有了';
-								}?></p>
-								<p>下一篇：<?php if($content['nav']['next']){
-									echo Html::link($content['nav']['next']['title'], array(
-										'post/'.$content['nav']['next']['id'],
-									));
-								}else{
-									echo '没有了';
-								}?></p>
+				<p>上一篇：<?php if($content['nav']['prev']){
+						echo Html::link($content['nav']['prev']['title'], array(
+							'post/'.$content['nav']['prev']['id'],
+						));
+					}else{
+						echo '没有了';
+					}?>
+				</p>
+				<p>下一篇：<?php if($content['nav']['next']){
+						echo Html::link($content['nav']['next']['title'], array(
+							'post/'.$content['nav']['next']['id'],
+						));
+					}else{
+						echo '没有了';
+					}?>
+				</p>
 			</div>
 	  </div>
   </div>

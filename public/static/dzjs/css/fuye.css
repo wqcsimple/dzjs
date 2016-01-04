@@ -22,7 +22,7 @@
 .gyright_head a:hover{text-decoration: underline;}
 
 /*content right body*/
-.zwd{width: 752px;float: left;padding-bottom: 70px;border: 1px solid #dcdcdc;
+.zwd{width: 752px;float: left;padding-bottom: 70px;border: 1px solid #dcdcdc; position: relative;
 -moz-box-shadow: 2px 2px 10px #909090;/*firefox*/
 -webkit-box-shadow: 2px 2px 10px #909090;/*safari或chrome*/
 box-shadow:2px 2px 10px #909090;/*opera或ie9*/}
@@ -41,8 +41,10 @@ box-shadow:2px 2px 10px #909090;/*opera或ie9*/}
 .zwd .zw .post-nav p{margin:5px 0 0 0;}
 .zwd .zw .post-nav p a:hover{text-decoration:underline;color:#FC5474;}
 
+.zwd .post-nav { position: absolute; bottom: 10px; left: 30px; }
+.zwd .post-nav p a:hover { text-decoration: underline; }
 
-/*== 分页 == */
+    /*== 分页 == */
 .paginator{padding: 10px 0 10px;white-space: nowrap;font-size: 12pz;width: 100%;float: left;padding-top: 40px;}
 .paginator li{display: inline;margin: 0 5px 1px;*vertical-align:middle; }
 .paginator li.dian{*height:24px;margin:0 6px;font-weight:bold;*line-height:24px; color:#313131;}
