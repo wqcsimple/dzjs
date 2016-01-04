@@ -5,3 +5,4 @@
 .settings
 web/.DS_Store
 web/img/.DS_Store
+./public/uploads
