@@ -1,4 +1,7 @@
-*.DS_Store
-*.settings
-*.buildpath
-*.project
+.idea
+.DS_Store
+.buildpath
+.project
+.settings
+web/.DS_Store
+web/img/.DS_Store

@@ -130,7 +130,7 @@
 .left .zlxz ul{width: 370px;padding-left: 10px;float: left;}
 .left .zlxz ul li{width: 340px;padding-left: 20px;color: #313131;float: left;padding-top: 6px;}
 .left .zlxz ul li span{text-align: right;font-size: 12px;float: right;}
-.left .zlxz ul li a{font-size: 14px;width: 280px;display: block;float: left;line-height: 140%;}
+.left .zlxz ul li a{font-size: 14px; width: 260px;display: block;float: left;line-height: 140%;}
 .left .zlxz ul li a:hover{color:#FF4040;}
 
 .right{width: 580px;float: left;padding-right: 8px;_padding-right:4p;}
