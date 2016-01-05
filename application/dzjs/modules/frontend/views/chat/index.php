@@ -1,53 +1,54 @@
-<?php 
+<?php
 use fayfox\helpers\Html;
+
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/fuye.css')?>">
- <div class="alltop"><?php F::app()->widget->load('post-banner-image')?></div>
-  <div class="aio">
+<link rel="stylesheet" type="text/css" href="<?php echo $this->staticFile('css/fuye.css') ?>">
+<div class="alltop"><?php F::app()->widget->load('post-banner-image') ?></div>
+<div class="aio">
 
- <div class="gyleft">
+    <div class="gyleft">
 
-<?php F::app()->widget->load('hot-news')?>
+        <?php F::app()->widget->load('hot-news') ?>
 
 
-<?php F::app()->widget->load('list-zlxz')?>
+        <?php F::app()->widget->load('list-zlxz') ?>
 
-<!----------------附页公用左侧----------------------> 
+        <!----------------附页公用左侧---------------------->
 
-<div class="gyright">
-    <div class="gyright_head1"><a href="<?php echo $this->url()?>">首页</a>>
-        <a href="">互动平台</a></div>
-        <div class="container">
-        
-            <div class="row" >
-            <form id = "message">
-               <blockquote>
-                       <h6>我要留言：</h6>
-                       <?php echo Html::inputHidden('parent', 0)?>
-                       <textarea name="content" id="content" cols="30" rows="10"></textarea>
-                       <h6>您的姓名：</h6><input type="text" name="realname" id="name" />
-                       <button class="button-primary" id="sub-message" />发布留言</button><img id="loading" src="<?php echo $this->staticFile('images/loading.gif')?>" style="margin-left:20px;float:right;display:none;"/>
-               </blockquote>
-               </form>
+        <div class="gyright">
+            <div class="gyright_head1"><a href="<?php echo $this->url() ?>">首页</a>>
+                <a href="">互动平台</a></div>
+            <div class="container">
+
+                <div class="row">
+                    <form id="message">
+                        <blockquote>
+                            <h6>我要留言：</h6>
+                            <?php echo Html::inputHidden('parent', 0) ?>
+                            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                            <h6>您的姓名：</h6><input type="text" name="realname" id="name" />
+                            <button class="button-primary" id="sub-message">发布留言</button>
+                            <img id="loading" src="<?php echo $this->staticFile('images/loading.gif') ?>"
+                                 style="margin-left:20px;float:right;display:none;"/>
+                        </blockquote>
+                    </form>
+                </div>
+
             </div>
-         
+
+            <div class="container">
+                <ul class="message-list">
+                    <?php $listview->showData() ?>
+
+                </ul>
+
+
+            </div>
+            <?php $listview->showPage(); ?>
+
+
         </div>
-        
-       <div class="container">
-            <ul class="message-list">
-               <?php $listview->showData()?>
-                
-            </ul>
-            
-            
-       </div>
-       <?php $listview->showPage();?>
-       
-
-    
-
-</div>
-<script src="<?php echo $this->staticFile('js/chat.js');?>"></script>
-<script>
-  chat.init();
-</script>
+        <script src="<?php echo $this->staticFile('js/chat.js'); ?>"></script>
+        <script>
+            chat.init();
+        </script>
