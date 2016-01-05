@@ -61,7 +61,7 @@ a:hover{text-decoration:none;}
 
 .web{ float:right;margin-top:12px; _margin-top:0px; *margin-top:0px;}
 
-.search{ width:174px; height:23px; float:left; margin-left:20px; background:url(../images/serch.png) no-repeat}
+.search{ width:174px; height:23px; float:left; margin-left:20px; background:url('../images/serch.png') no-repeat}
 
 .input{float:left;width:130px;height:23px; line-height:23px;outline: none;border: none;padding-left: 10px;background: none;color:#444;}
 
@@ -73,23 +73,22 @@ a:hover{text-decoration:none;}
 
 .on{display: inline-block;}
 
-
 .menuer{ width:100%; height:75px;margin:auto;position:relative; z-index:5;}
-.menu{ width:985px; margin:auto; height:60px;position:relative;  padding-top:22px;}
-.menu_logo{  float:left; height:50px; float:left}
+.menu{ width:985px; margin:auto; height:60px;position:relative;}
+.menu_logo { float:left; height:50px; }
 .menu_logo img{height: 50px;width: 300px;}
-.menu_menu{  float:left; color:#333; margin-top:10px; background:url(../images/menuline.png) no-repeat; _background:none;background-position:129px 18px;*background-position:145px 18px;_background-position:165px 18px;position:relative; z-index:5; }
-.nav { float:right; position:relative;color:#FFF; } 
+.menu_menu{  float:left; color:#333; margin-top:10px; background:url('../images/menuline.png') no-repeat; _background:none;background-position:129px 18px;*background-position:145px 18px;_background-position:165px 18px;position:relative; z-index:5; }
+.nav { float:right; position:relative;color:#FFF; }
 .nav ul .livea{float:left; width:105px; z-index:99;  position:relative; text-align:right;height:45px;line-height:40px;}
 .nav ul li {float:left; width:107px; z-index:99;  position:relative; text-align:right;height:45px;line-height:40px;}
 .nav ul li a{color:#444;text-decoration:none; padding-bottom:8px;*padding-bottom:5px;  font-size:14px; font-family:'Microsoft YaHei';text-align:center;position:relative;z-index:99;}
 .nav ul li a:hover{ border-bottom:3px solid #2D73C8; padding-bottom:8px;*padding-bottom:5px;}
-.cure{border-bottom:3px solid #2D73C8; padding-bottom:8px;8padding-bottom:5px; }
+.cure{border-bottom:3px solid #2D73C8; padding-bottom:5px; }
 
 .livs{ width:110px; margin-top:-40px; height:281px; position:absolute; left:25%;*margin-top:-10px; _margin-top:-10px; float:left; z-index:10;}
 .livs ul{ float:left; width: 110px; padding-top:40px;z-index:10; background: #fff;}
 .livs ul li{ height:38px; text-align:left; padding-left:23px; }
-.livs ul li a{color:#444;text-decoration:none; font-size:14px; font-family:'Microsoft YaHei';text-align:center;}
+.livs ul li a{color:#444;text-decoration:none; font-size:14px; font-family:'Microsoft YaHei'; text-align:center;}
 .livs ul li a:hover{ color:#ef7d81;border-bottom:none;}
 
 /*.libg{background:url(../images/menubj.png) no-repeat;}
@@ -103,7 +102,7 @@ a:hover{text-decoration:none;}
 
 .foot{ width:100%; height:165px; background:#f9f9f9; margin-top:50px; float:left; border-top:1px solid #dfdede;}
 
-.footin{width:942px; margin:0 auto; padding-top:37px;} 
+.footin{width:942px; margin:0 auto; padding-top:37px;}
 
 .footin h1{ width:58px; height:58px; float:left;}
 
@@ -225,7 +224,7 @@ a:hover{text-decoration:none;}
 
 .gybk{ width:205px; float:left; border:1px solid #dcdcdc; margin-bottom:10px;border-radius: 5px; background:#f9f9f9;padding-bottom:15px;}
 
-.gybk .bd{ width:140px; height:30px; margin-left:25px;_margin-left:15px; margin-top:24px; background:url(../images/bkbd.png) no-repeat; float:left; }
+.gybk .bd{ width:140px; height:30px; margin-left:25px;_margin-left:15px; margin-top:24px; background:url('../images/bkbd.png') no-repeat; float:left; }
 
 .gybk .bd a{ padding-left:40px; font-size:20px; color:#004e72;}
 
@@ -245,9 +244,9 @@ a:hover{text-decoration:none;}
 
 .zclq h1{ float:left; width:133px; margin-top:25px; color:#004e72; font-size:20px; margin-left:30px;_margin-left:15px;}
 
-.zclq h2{ float:left;width:133px; color:#004e72; font-size:20px; margin-left:30px;_margin-left:15px;line-height:30px;font-size:16px; margin-top:10px; color:#313131;}
+.zclq h2{ float:left;width:133px; margin-left:30px;_margin-left:15px;line-height:30px;font-size:16px; margin-top:10px; color:#313131;}
 
-.zclq h2 span{ background:url(../images/hei.png) no-repeat left; width:6px; height:14px;padding-right:15px; }
+.zclq h2 span{ background:url('../images/hei.png') no-repeat left; width:6px; height:14px;padding-right:15px; }
 
 .zclq ul{ width:140px; float:left;margin-left:30px;_margin-left:15px;}
 
@@ -255,7 +254,7 @@ a:hover{text-decoration:none;}
 
 .zclq ul li a{ display:block;width:58px; height:23px; font-size:14px; color:#313131; text-align:center}
 
-.zclq ul li a:hover{width:58px; height:23px; background:url(../images/red.png) no-repeat; color:#ffffff;}
+.zclq ul li a:hover{width:58px; height:23px; background:url('../images/red.png') no-repeat; color:#ffffff;}
 
 
 
@@ -290,7 +289,6 @@ a:hover{text-decoration:none;}
 /*== 附页公用左侧 == */
 
 /* 外部引入css */
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
   position: relative;
   width: 100%;
@@ -494,7 +492,7 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal; }
 
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 hr {
   margin-top: 3rem;
   margin-bottom: 3.5rem;
