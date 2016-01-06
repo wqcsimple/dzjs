@@ -10,7 +10,7 @@ use fayfox\models\Analyst;
         <div class="fp">
             <p><?php echo Option::get('phone') ?> <a href="" style="color:#313131">更多联系方式</a></p>
             <p><?php echo Option::get('copyright') ?> </p>
-            <p>今日访问量：<?php echo Analyst::model()->getPV() ?> 总访问量：<?php echo Analyst::model()->getAllPV() ?></p>
+            <p>今日访问量：<?php echo Analyst::model()->getPV() ?> 总访问量：<?php echo Analyst::model()->getAllPV() + 30000 ?></p>
         </div>
 
     </div>
