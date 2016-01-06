@@ -8,6 +8,7 @@ define('BASEPATH', realpath(__DIR__).DIRECTORY_SEPARATOR);//定义程序根目�
 define('APPLICATION', isset($_SESSION['__app']) ? $_SESSION['__app'] : 'dzjs');
 
 require __DIR__.'/_init.php';
+require_once __DIR__ . '/util.php';
 
 $bootstrap = new Bootstrap();
 if($bootstrap->config('hook')){

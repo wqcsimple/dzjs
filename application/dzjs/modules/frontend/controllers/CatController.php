@@ -8,9 +8,15 @@ use fayfox\core\Sql;
 use fayfox\common\ListView;
 use fayfox\models\tables\Posts;
 class CatController extends FrontController{
-    public function index(){
-        $cat = Category::model()->get($this->input->get('id','intval'));
-        
+    public function index()
+    {
+        $cat_id = $this->input->get('id', 'intval');
+        if ($cat_id == 10000)
+        {
+            Response::redirect('post/3395');
+        }
+        $cat = Category::model()->get($cat_id);
+
         $this->layout->title = $cat['title'];
         if (!$cat){
             Response::showError('您访问的页面不存在！',404,'404');

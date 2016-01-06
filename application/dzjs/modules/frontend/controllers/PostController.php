@@ -7,7 +7,8 @@ use fayfox\models\tables\Posts;
 use fayfox\core\db\Intact;
 
 class PostController extends FrontController{
-    public function item(){
+    public function item()
+    {
         $id = $this->input->get('id', 'intval');
         $content = Post::model()->get($id);
         
